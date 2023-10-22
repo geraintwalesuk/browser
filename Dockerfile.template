@@ -5,7 +5,6 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-ubuntu-node:${NODEJS_VERSION}-jammy-build
 # install required packages
 RUN install_packages \
     chromium-browser \
-    chromium \
     libgles2-mesa \
     lsb-release \
     mesa-vdpau-drivers \
