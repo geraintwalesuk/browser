@@ -46,7 +46,7 @@ COPY ./public-html /home/chromium
 RUN echo 'SUBSYSTEM=="vchiq",GROUP="video",MODE="0660"' > /etc/udev/rules.d/10-vchiq-permissions.rules
 RUN usermod -a -G audio,video,tty chromium
 
-RUN ln -s /usr/bin/chromium /usr/bin/chromium-browser || true
+RUN ln -s -f /usr/bin/chromium /usr/bin/chromium-browser || true
 
 COPY VERSION .
 
