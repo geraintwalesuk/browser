@@ -4,7 +4,8 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-node:${NODEJS_VERSION}-bullseye-ru
 
 # install required packages
 RUN install_packages \
-    chromium-browser \
+    chromium-common \
+    chromium \
     libgles2-mesa \
     lsb-release \
     mesa-vdpau-drivers \
