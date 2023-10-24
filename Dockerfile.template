@@ -1,10 +1,9 @@
 ARG NODEJS_VERSION="16.19.1"
 
-FROM balenalib/%%BALENA_MACHINE_NAME%%-ubuntu-node:${NODEJS_VERSION}-jammy-build
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-node:${NODEJS_VERSION}-bullseye-run
 
 # install required packages
 RUN install_packages \
-    apt-utils \
     chromium-browser \
     libgles2-mesa \
     lsb-release \
@@ -30,6 +29,8 @@ RUN JOBS=MAX npm install --unsafe-perm --production && npm cache clean --force
 COPY ./src /usr/src/app/
 
 RUN chmod +x ./*.sh
+
+ENV UDEV=1
 
 RUN mkdir -p /etc/chromium/policies
 RUN mkdir -p /etc/chromium/policies/recommended
